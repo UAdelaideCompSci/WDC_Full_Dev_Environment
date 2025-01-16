@@ -1,8 +1,5 @@
-version: '3.4'
-
 services:
-  DEV_ENV_TEMPLATE:
-    image: DEV_ENV_TEMPLATE
+  dev_env_template:
     build:
       context: .
       dockerfile: ./Dockerfile
