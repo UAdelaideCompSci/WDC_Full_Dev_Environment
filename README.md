@@ -3,6 +3,7 @@ Use this template for a skeleton dev environment for VSCode, Docker, MYSQL and N
 
 After cloning this repository, to complete setup, in the VSCode terminal run:
 > npx express-generator
+
 > npm install
 
 To create an run the docker containers (the node.js/express container + mysql container):
