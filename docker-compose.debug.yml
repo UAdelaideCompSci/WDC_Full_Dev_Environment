@@ -1,0 +1,24 @@
+version: '3.4'
+
+services:
+  testsetup2:
+    image: testsetup2
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: development
+    ports:
+      - 3000:3000
+      - 9229:9229
+    command: ["node", "--inspect=0.0.0.0:9229", "./bin/www"]
+  mysql:
+    environment:
+      MYSQL_ROOT_PASSWORD: debug_password # Use a different password for debugging
+      MYSQL_DATABASE: COMPSCI2207_DEBUG # Create a separate debug database
+      MYSQL_USER: debug_admin
+      MYSQL_PASSWORD: debug_admin
+    ports:
+      - "3307:3306" # Expose a different port to avoid conflicts with production
+    volumes:
+      - .db-debug-container:/var/lib/mysql # Use a different volume for debugging data

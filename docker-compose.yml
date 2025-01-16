@@ -1,0 +1,25 @@
+version: '3.4'
+
+services:
+  DEV_ENV_TEMPLATE:
+    image: DEV_ENV_TEMPLATE
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000:3000
+  mysql:
+    image: mysql:latest # Use the MySQL image from Docker Hub
+    container_name: mysql-container # Optional: name the container
+    restart: always # Automatically restart the container if it stops
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: COMPSCI2207 # Create a database on startup
+      MYSQL_USER: admin # Create a user on startup
+      MYSQL_PASSWORD: admin # Password for the new user
+    ports:
+      - "3306:3306" # Map the host's port 3306 to the container's port 3300
+    volumes:
+      - .db-container:/var/lib/mysql # Persist database data on the host
