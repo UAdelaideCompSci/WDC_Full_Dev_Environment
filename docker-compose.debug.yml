@@ -1,8 +1,8 @@
 version: '3.4'
 
 services:
-  testsetup2:
-    image: testsetup2
+  DEV_ENV_TEMPLATE:
+    image: DEV_ENV_TEMPLATE
     build:
       context: .
       dockerfile: ./Dockerfile
